@@ -1,0 +1,3 @@
+"use client";
+import { useState } from 'react';
+export default function VideoCard({ id, title, description }: { id: string; title: string; description: string }) { const [show,setShow]=useState(false); if(!/^[a-zA-Z0-9_-]{11}$/.test(id)) return null; return <article className="card"><div className="video">{show?<iframe src={`https://www.youtube-nocookie.com/embed/${id}`} title={title} loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen/>:<button className="video-placeholder" onClick={()=>setShow(true)}>▷ Načítať video z YouTube<small>Načítaním sa pripojíš k službe YouTube.</small></button>}</div><h3>{title}</h3><p>{description}</p></article> }
